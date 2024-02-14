@@ -10,19 +10,19 @@ public class BrickWall : MonoBehaviour
     private float offsetX;
     private float y0;
     private float offsetY;
+    
     void Start()
     {
         PlaceBricks();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
 
     private void PlaceBricks(int nRows = 5, int nCols = 5, float gap = 0.5f){
-        CalcOriginOffset(nCols, nRows, 1, 7);
+        CalcOriginOffset(nCols, nRows, gap);
 
         int currentIndex = 0;
         for (int i = 0; i < nRows; i++)
@@ -42,20 +42,15 @@ public class BrickWall : MonoBehaviour
         }
     }
 
-    private void CalcOriginOffset(int nCols, int nRows, float marginX, float marginY)
+    private void CalcOriginOffset(int nCols, int nRows, float gap)
     {
-        float camWidth = Camera.main.pixelWidth / 100;
-        float camHeight = Camera.main.pixelHeight / 100;
-
         Vector3 brickSize = brickPrefabs[0].GetComponentInChildren<SpriteRenderer>().bounds.size; //cualquier brick sirve
 
         float brickWidth = brickSize.x;
         float brickHeight = brickSize.y;
 
-        float gapX = (camWidth - brickWidth * nCols - marginX * 2) / (nCols - 1);
-        if (gapX < 0) gapX = 0;
-        float gapY = (camHeight - brickHeight * nRows - marginY * 2) / (nRows - 1);
-        if (gapY < 0) gapY = 0;
+        float gapX = gap;
+        float gapY = gap;
 
         float rowWidth = brickWidth * nCols + gapX * (nCols - 1);
         float colHeight = brickHeight * nRows + gapY * (nRows - 1);
