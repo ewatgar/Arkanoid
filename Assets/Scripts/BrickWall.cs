@@ -10,7 +10,7 @@ public class BrickWall : MonoBehaviour
     private float offsetX;
     private float y0;
     private float offsetY;
-    
+
     void Start()
     {
         PlaceBricks();
@@ -35,7 +35,7 @@ public class BrickWall : MonoBehaviour
             {
                 Debug.Log("j: "+j);
                 float coordsX = x0 + offsetX * j;
-                float coordsY = y0 + offsetY * i; //- 5;
+                float coordsY = y0 + offsetY * i;
                 CreateBrick(brickPrefab, -coordsX, -coordsY);
                 
             }
