@@ -27,13 +27,10 @@ public class BrickWall : MonoBehaviour
         int currentIndex = 0;
         for (int i = 0; i < nRows; i++)
         {
-            Debug.Log("i: "+i);
-            Debug.Log("currentIndex: "+currentIndex);
             GameObject brickPrefab = brickPrefabs[currentIndex];
             currentIndex++;
             for (int j = 0; j < nCols; j++)
             {
-                Debug.Log("j: "+j);
                 float coordsX = x0 + offsetX * j;
                 float coordsY = y0 + offsetY * i;
                 CreateBrick(brickPrefab, -coordsX, -coordsY);
