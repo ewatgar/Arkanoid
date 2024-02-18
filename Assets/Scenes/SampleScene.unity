@@ -163,13 +163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0468609f5f20624ca54f9345073884b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brickPrefabs:
-  - {fileID: 504842950126138796, guid: 8da671969f3ce8c4d9d7692e893315d0, type: 3}
-  - {fileID: 4549417556467480713, guid: 5cf9447eddaeaa944afc3f2482dc2d1e, type: 3}
-  - {fileID: 7842258285238695846, guid: 64d674cb47788a64e9d9b783e1a934fd, type: 3}
-  - {fileID: 8827055863941220176, guid: 7e906991c5a6b264a9b0132029512671, type: 3}
-  - {fileID: 5086806553726405043, guid: 269458392c112d74c812b050ac0ac17e, type: 3}
+  brickPrefabs: []
   totalBricks: 0
+  nRows: 5
+  nCols: 5
 --- !u!1 &201359362
 GameObject:
   m_ObjectHideFlags: 0
