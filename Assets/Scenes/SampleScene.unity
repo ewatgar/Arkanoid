@@ -808,6 +808,7 @@ GameObject:
   - component: {fileID: 1003372826}
   - component: {fileID: 1003372825}
   - component: {fileID: 1003372827}
+  - component: {fileID: 1003372828}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -908,6 +909,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+--- !u!255 &1003372828
+FixedJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003372823}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 201359366}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: -1.3333336}
+  m_DampingRatio: 0
+  m_Frequency: 0
 --- !u!1 &1064821420
 GameObject:
   m_ObjectHideFlags: 0
