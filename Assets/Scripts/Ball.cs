@@ -8,13 +8,17 @@ public class Ball : MonoBehaviour
     FixedJoint2D playerFixedJoint;
     LevelController levelController;
     public float speed = 7;
+    Vector2 initBallPos;
+    Vector2 initPlayerPos;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         playerFixedJoint = GameObject.Find("Player").GetComponent<FixedJoint2D>();
         levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
-        StartCoroutine(LaunchTimer());
+        initBallPos = transform.position;
+        initPlayerPos = playerFixedJoint.transform.position;
+        StartCoroutine(PrepareLaunch());
     }
 
     void FixedUpdate()
@@ -31,19 +35,24 @@ public class Ball : MonoBehaviour
     }
     public void Launch(Vector2 dir)
     {
-        playerFixedJoint.enabled = false;
         //rigidBody.AddForce(dir*speed);
         rigidBody.velocity = dir * speed;
     }
 
-    IEnumerator LaunchTimer()
+    public IEnumerator PrepareLaunch()
     {
+        playerFixedJoint.enabled = true;
+        RestartPosition();
+
         yield return new WaitForSeconds(2);
-        //Debug.Log("Pelota se lanza");
 
         Vector2 initDir = transform.up;
+        playerFixedJoint.enabled = false;
         Launch(initDir);
     }
 
-
+    private void RestartPosition(){
+        transform.position = initBallPos;
+        playerFixedJoint.transform.position = initPlayerPos;
+    }
 }

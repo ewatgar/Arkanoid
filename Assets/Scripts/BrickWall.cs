@@ -7,6 +7,9 @@ public class BrickWall : MonoBehaviour
 {
     [SerializeField] GameObject[] brickPrefabs;
     [HideInInspector] public int totalBricks = 0;
+    public int nRows = 5;
+    public int nCols = 5;
+    float gap = 0.5f;
     private float x0;
     private float offsetX;
     private float y0;
@@ -14,7 +17,7 @@ public class BrickWall : MonoBehaviour
 
     void Start()
     {
-        PlaceBricks();
+        PlaceBricks(nRows, nCols, gap);
     }
 
     void Update()
@@ -25,17 +28,20 @@ public class BrickWall : MonoBehaviour
     private void PlaceBricks(int nRows = 5, int nCols = 5, float gap = 0.5f){
         CalcOriginOffset(nCols, nRows, gap);
 
-        int currentIndex = 0;
+        int brickIndex = 0;
+
         for (int i = 0; i < nRows; i++)
         {
-            GameObject brickPrefab = brickPrefabs[currentIndex];
-            currentIndex++;
+            GameObject brickPrefab = brickPrefabs[brickIndex];
             for (int j = 0; j < nCols; j++)
             {
                 float coordsX = x0 + offsetX * j;
                 float coordsY = y0 + offsetY * i;
                 CreateBrick(brickPrefab, -coordsX, -coordsY);
-                
+            }
+            brickIndex++;
+            if (brickIndex == brickPrefabs.Length){
+                brickIndex = 0;
             }
         }
     }
