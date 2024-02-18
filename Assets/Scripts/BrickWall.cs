@@ -6,6 +6,7 @@ using UnityEngine;
 public class BrickWall : MonoBehaviour
 {
     [SerializeField] GameObject[] brickPrefabs;
+    [HideInInspector] public int totalBricks = 0;
     private float x0;
     private float offsetX;
     private float y0;
@@ -68,5 +69,6 @@ public class BrickWall : MonoBehaviour
             coordsY,
             -1
         );
+        totalBricks++;
     }
 }
