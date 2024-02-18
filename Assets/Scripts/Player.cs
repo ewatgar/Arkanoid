@@ -5,13 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Rigidbody2D rigidBody;
-    CapsuleCollider2D capsuleCollider;
     public float speed = 10;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        capsuleCollider = GetComponent<CapsuleCollider2D>();
     }
 
 
@@ -36,14 +34,7 @@ public class Player : MonoBehaviour
     {
         Vector2 mouseCoordsPixels = Input.mousePosition;
         Vector2 mouseCoordsGlobal = Camera.main.ScreenToWorldPoint(mouseCoordsPixels);
-        
         Vector2 platformCoords = new Vector2(mouseCoordsGlobal.x,transform.position.y);
-        
-        /*
-        Vector2 startPosition = transform.position;
-        Vector2 finalPosition = mouseCoordsGlobal;
-        Vector2 movementVector = finalPosition - startPosition;
-        Vector2 platformCoords = new Vector2(movementVector.x,transform.position.y);*/
         rigidBody.MovePosition(platformCoords);
     }
 }
