@@ -927,8 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0059f40feca20b4aa9e636cabcad818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  width: 10
+  width: 5
 --- !u!255 &1003372828
 FixedJoint2D:
   m_ObjectHideFlags: 0

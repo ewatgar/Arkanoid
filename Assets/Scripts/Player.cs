@@ -11,12 +11,12 @@ public class Player : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        initSize();
     }
 
 
     void FixedUpdate()
     {
+        changeSize();
         keyboardControls();
     }
 
@@ -40,16 +40,21 @@ public class Player : MonoBehaviour
         rigidBody.MovePosition(platformCoords);
     }
 
-    private void initSize()
+    private void changeSize()
     {
         GameObject platform = transform.Find("Platform").gameObject;
         GameObject square = platform.transform.Find("Square").gameObject;
         GameObject lCircle = platform.transform.Find("LCircle").gameObject;
         GameObject rCircle = platform.transform.Find("RCircle").gameObject;
+        CapsuleCollider2D collider = transform.GetComponent<CapsuleCollider2D>();
+
         float squareSize = width / 2;
-        float circleSize = squareSize / 2;
+        float circlePos = squareSize / 2;
+        float colliderSize = squareSize + 0.5f;
+
         square.transform.localScale = new Vector3(squareSize, 0.5f, 1);
-        lCircle.transform.localScale = new Vector3(circleSize, 0.5f, 1);
-        rCircle.transform.localScale = new Vector3(circleSize, 0.5f, 1);
+        lCircle.transform.localPosition = new Vector3(-circlePos, 0, 0);
+        rCircle.transform.localPosition = new Vector3(circlePos, 0, 0);
+        collider.size = new Vector2(colliderSize,0.5f);
     }
 }
