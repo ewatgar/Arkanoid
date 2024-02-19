@@ -10,11 +10,13 @@ public class LevelController : MonoBehaviour
     Ball ball;
     int score = 0;
     public int lives = 3;
+    public int maxSeconds = 10;
 
     void Start()
     {
         brickWall = GameObject.Find("BrickWall").GetComponent<BrickWall>();
         ball = GameObject.Find("Ball").GetComponent<Ball>();
+        StartCoroutine(Timer());
     }
 
     void Update()
@@ -58,5 +60,21 @@ public class LevelController : MonoBehaviour
             Debug.Log("Perdiste todas las vidas, reiniciando partida...");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
+
+    IEnumerator Timer(){
+        int lastSeconds = 0;
+        float totalTime = 0;
+        while(totalTime < maxSeconds){
+            int totalSeconds = (int)totalTime;
+            if (lastSeconds != totalSeconds){
+                Debug.Log("Quedan " + (maxSeconds-totalSeconds) + " segundos");
+                lastSeconds = totalSeconds;
+            }
+            totalTime += Time.deltaTime;
+            yield return null;
+        }
+        Debug.Log("Se acabó el tiempo");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
