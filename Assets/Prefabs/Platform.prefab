@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3178607791067976533}
   - component: {fileID: 2305240058458386681}
   m_Layer: 0
-  m_Name: Circle (1)
+  m_Name: RCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 2902895758238563730}
   - component: {fileID: 1288174600508987248}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: LCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

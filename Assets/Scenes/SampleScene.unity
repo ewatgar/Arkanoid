@@ -928,6 +928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  width: 10
 --- !u!255 &1003372828
 FixedJoint2D:
   m_ObjectHideFlags: 0

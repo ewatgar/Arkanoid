@@ -28,7 +28,8 @@ public class Ball : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Brick"){
+        if (collision.gameObject.tag == "Brick")
+        {
             Brick brick = collision.gameObject.GetComponent<Brick>();
             levelController.OnBrickCollided(brick);
         }
@@ -51,7 +52,8 @@ public class Ball : MonoBehaviour
         Launch(initDir);
     }
 
-    private void RestartPosition(){
+    private void RestartPosition()
+    {
         transform.position = initBallPos;
         playerFixedJoint.transform.position = initPlayerPos;
     }
